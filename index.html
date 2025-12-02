@@ -16,42 +16,40 @@
     <img src="images/hero.jpeg" alt="Hero Image" class="hero-image">
     <div class="hero-text fade-in">
       <h1>Shawn Forer Photography</h1>
-      <p>Elevate your Vision</p>
+      <p>Capturing Sports, Events, Lifestyle, and Product Photography Worldwide</p>
       <a href="#contact" class="btn fade-in-btn">Invest in Yourself → Book a Session</a>
     </div>
   </section>
 
   <!-- ABOUT SECTION -->
-<section id="about" class="fade-in-section">
-  <h2>Hi, I'm Shawn</h2>
-  <p>As a dedicated triathlete and professional photographer, I bring the same focus, energy, and attention to detail to every shoot. I specialize in capturing sports, events, lifestyle moments, and product photography, creating images that tell authentic stories.</p>
-  <p>Based in Southern California, I travel globally to capture unforgettable moments for clients around the world. Whether it’s high-intensity action, candid lifestyle shots, or curated product photography, my goal is to deliver images that inspire and connect.</p>
-</section>
-
+  <section id="about" class="fade-in-section">
+    <h2>Hi, I'm Shawn</h2>
+    <p>As a dedicated triathlete and professional photographer, I bring the same focus, energy, and attention to detail to every shoot. I specialize in capturing sports, events, lifestyle moments, and product photography, creating images that tell authentic stories.</p>
+    <p>Based in Southern California, I travel globally to capture unforgettable moments for clients around the world. Whether it’s high-intensity action, candid lifestyle shots, or curated product photography, my goal is to deliver images that inspire and connect.</p>
+  </section>
 
   <!-- SERVICES SECTION -->
-<section id="services" class="fade-in-section">
-  <h2>What I Offer</h2>
-  <div class="services-container">
-    <div class="service">
-      <h3>Sports & Events</h3>
-      <p>Dynamic, high-energy photography that captures the intensity and emotion of competitions, tournaments, and special events.</p>
+  <section id="services" class="fade-in-section">
+    <h2>What I Offer</h2>
+    <div class="services-container">
+      <div class="service">
+        <h3>Sports & Events</h3>
+        <p>Dynamic, high-energy photography that captures the intensity and emotion of competitions, tournaments, and special events.</p>
+      </div>
+      <div class="service">
+        <h3>Lifestyle</h3>
+        <p>Authentic, natural portraits and moments for individuals, families, or creative projects, designed to tell your story.</p>
+      </div>
+      <div class="service">
+        <h3>Product</h3>
+        <p>Professional product photography for creators, businesses, or online brands, showcasing your work in the best light.</p>
+      </div>
+      <div class="service">
+        <h3>Mini Sessions</h3>
+        <p>Quick, edited shoots perfect for holiday cards, personal projects, or a few standout images ($120 for 5 edited photos).</p>
+      </div>
     </div>
-    <div class="service">
-      <h3>Lifestyle</h3>
-      <p>Authentic, natural portraits and moments for individuals, families, or creative projects, designed to tell your story.</p>
-    </div>
-    <div class="service">
-      <h3>Product</h3>
-      <p>Professional product photography for creators, businesses, or online brands, showcasing your work in the best light.</p>
-    </div>
-    <div class="service">
-      <h3>Mini Sessions</h3>
-      <p>Quick, edited shoots perfect for holiday cards, personal projects, or a few standout images ($120 for 5 edited photos).</p>
-    </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- PORTFOLIO SECTION -->
   <section id="portfolio" class="fade-in-section">
@@ -60,6 +58,7 @@
       <a href="images/portfolio1.JPG"><img src="images/portfolio1.JPG" alt="Portfolio Image 1"></a>
       <a href="images/portfolio2.JPG"><img src="images/portfolio2.JPG" alt="Portfolio Image 2"></a>
       <a href="images/portfolio3.JPG"><img src="images/portfolio3.JPG" alt="Portfolio Image 3"></a>
+      <a href="images/portfolio4.jpeg"><img src="images/portfolio4.jpeg" alt="Portfolio Image 4"></a>
       <a href="images/portfolio5.JPG"><img src="images/portfolio5.JPG" alt="Portfolio Image 5"></a>
       <a href="images/portfolio6.jpg"><img src="images/portfolio6.jpg" alt="Portfolio Image 6"></a>
       <a href="images/portfolio7.jpg"><img src="images/portfolio7.jpg" alt="Portfolio Image 7"></a>
@@ -68,8 +67,8 @@
 
   <!-- CONTACT SECTION -->
   <section id="contact" class="fade-in-section">
-    <h2>Let's Work Together</h2>
-    <p>Invest in yourself — book a session today and let’s create photos that tell your story.</p>
+    <h2>Let’s Create Something Great</h2>
+    <p>Invest in yourself — book a session today and let’s capture images that tell your story, whether it’s sports, events, lifestyle, or products.</p>
     <form action="mailto:shawn@forer.media" method="post" enctype="text/plain">
       <input type="text" name="name" placeholder="Name" required>
       <input type="email" name="email" placeholder="Email" required>
@@ -86,6 +85,8 @@
 
   <!-- SimpleLightbox JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.1/simple-lightbox.min.js"></script>
+
+  <!-- FADE-IN AND LIGHTBOX JS -->
   <script>
     // Initialize lightbox for gallery
     var lightbox = new SimpleLightbox('.gallery a', {
@@ -100,7 +101,6 @@
       threshold: 0.1,
       rootMargin: "0px 0px -50px 0px"
     };
-
     const appearOnScroll = new IntersectionObserver(function(entries, observer){
       entries.forEach(entry => {
         if(!entry.isIntersecting) return;
@@ -108,9 +108,15 @@
         observer.unobserve(entry.target);
       });
     }, appearOptions);
-
     faders.forEach(fader => {
       appearOnScroll.observe(fader);
+    });
+
+    // MOUSE-RESPONSIVE BACKGROUND
+    document.addEventListener('mousemove', function(e) {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      document.body.style.background = `radial-gradient(circle at ${x*100}% ${y*100}%, rgba(255,255,255,0.08), #ffffff)`;
     });
   </script>
 </body>
