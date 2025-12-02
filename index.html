@@ -14,7 +14,7 @@
   <!-- HERO SECTION -->
   <section id="hero">
     <img src="images/hero.jpg" alt="Hero Image" class="hero-image">
-    <div class="hero-text">
+    <div class="hero-text fade-in">
       <h1>Shawn Forer Photography</h1>
       <p>Capturing Moments That Matter</p>
       <a href="#contact" class="btn">Invest in Yourself → Book a Session</a>
@@ -22,14 +22,14 @@
   </section>
 
   <!-- ABOUT SECTION -->
-  <section id="about">
+  <section id="about" class="fade-in-section">
     <h2>Hi, I'm Shawn</h2>
     <p>I’m a D1 Stanford water polo player turned professional photographer, specializing in sports, events, and lifestyle sessions. With years of experience capturing high-energy moments and authentic expressions, I make sure every shot tells a story.</p>
     <p>Based in Austin, TX, I offer private coaching photography, event coverage, and personalized photoshoots for friends, families, and athletes.</p>
   </section>
 
   <!-- SERVICES SECTION -->
-  <section id="services">
+  <section id="services" class="fade-in-section">
     <h2>What I Offer</h2>
     <div class="services-container">
       <div class="service">
@@ -48,7 +48,7 @@
   </section>
 
   <!-- PORTFOLIO SECTION -->
-  <section id="portfolio">
+  <section id="portfolio" class="fade-in-section">
     <h2>Portfolio</h2>
     <div class="gallery">
       <a href="images/portfolio1.JPG"><img src="images/portfolio1.JPG" alt="Portfolio Image 1"></a>
@@ -62,7 +62,7 @@
   </section>
 
   <!-- CONTACT SECTION -->
-  <section id="contact">
+  <section id="contact" class="fade-in-section">
     <h2>Let's Work Together</h2>
     <p>Invest in yourself — book a session today and let’s create photos that tell your story.</p>
     <form action="mailto:shawn@forer.media" method="post" enctype="text/plain">
@@ -88,7 +88,29 @@
       captionSelector: 'img',
       captionType: 'alt'
     });
-  </script>
 
+    // FADE-IN ON SCROLL
+    const faders = document.querySelectorAll('.fade-in, .fade-in-section, .gallery img');
+
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer){
+      entries.forEach(entry => {
+        if(!entry.isIntersecting){
+          return;
+        } else {
+          entry.target.classList.add('appear');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
 </body>
 </html>
