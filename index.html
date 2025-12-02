@@ -17,7 +17,7 @@
     <div class="hero-text fade-in">
       <h1>Shawn Forer Photography</h1>
       <p>Capturing Moments That Matter</p>
-      <a href="#contact" class="btn">Invest in Yourself → Book a Session</a>
+      <a href="#contact" class="btn fade-in-btn">Invest in Yourself → Book a Session</a>
     </div>
   </section>
 
@@ -82,7 +82,7 @@
   <!-- SimpleLightbox JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.1/simple-lightbox.min.js"></script>
   <script>
-    // Initialize lightbox for all images in gallery
+    // Initialize lightbox for gallery
     var lightbox = new SimpleLightbox('.gallery a', {
       captions: true,
       captionSelector: 'img',
@@ -90,7 +90,7 @@
     });
 
     // FADE-IN ON SCROLL
-    const faders = document.querySelectorAll('.fade-in, .fade-in-section, .gallery img');
+    const faders = document.querySelectorAll('.fade-in, .fade-in-section, .gallery img, .fade-in-btn');
 
     const appearOptions = {
       threshold: 0.1,
@@ -99,12 +99,9 @@
 
     const appearOnScroll = new IntersectionObserver(function(entries, observer){
       entries.forEach(entry => {
-        if(!entry.isIntersecting){
-          return;
-        } else {
-          entry.target.classList.add('appear');
-          observer.unobserve(entry.target);
-        }
+        if(!entry.isIntersecting) return;
+        entry.target.classList.add('appear');
+        observer.unobserve(entry.target);
       });
     }, appearOptions);
 
