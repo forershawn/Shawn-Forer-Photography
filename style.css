@@ -1,20 +1,18 @@
-/* GENERAL STYLES */
+/* GENERAL */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
 }
-
 body {
   line-height: 1.6;
   color: #111;
   background: #fff;
-  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
-/* BUTTON STYLE */
+/* BUTTONS */
 .btn {
   display: inline-block;
   padding: 14px 28px;
@@ -25,14 +23,13 @@ body {
   border-radius: 6px;
   transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
-
 .btn:hover {
   background: #222;
   transform: scale(1.05);
   box-shadow: 0 6px 18px rgba(0,0,0,0.2);
 }
 
-/* HERO SECTION */
+/* HERO */
 #hero {
   position: relative;
   height: 90vh;
@@ -42,7 +39,6 @@ body {
   text-align: center;
   overflow: hidden;
 }
-
 .hero-image {
   position: absolute;
   width: 100%;
@@ -52,27 +48,23 @@ body {
   filter: brightness(0.6);
   animation: zoomHero 30s ease-in-out infinite alternate;
 }
-
 @keyframes zoomHero {
   0% { transform: scale(1); }
   100% { transform: scale(1.05); }
 }
 
-.hero-text {
+/* FADE-IN ANIMATION */
+.fade-in, .fade-in-section, .fade-in-btn, .gallery img {
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 1.5s forwards;
 }
-
-.hero-text h1 {
-  font-size: 3em;
-  color: #fff;
+.appear {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease, transform 1s ease;
 }
-
-.hero-text p {
-  color: #fff;
-  font-size: 1.5em;
-  margin-top: 12px;
+.fade-in-btn {
+  transition-delay: 0.7s;
 }
 
 /* SECTIONS */
@@ -81,7 +73,6 @@ section {
   max-width: 1000px;
   margin: 0 auto;
 }
-
 h2 {
   font-size: 2.8em;
   margin-bottom: 40px;
@@ -89,7 +80,6 @@ h2 {
   color: #222;
   position: relative;
 }
-
 h2::after {
   content: "";
   display: block;
@@ -99,7 +89,6 @@ h2::after {
   margin: 12px auto 0 auto;
   border-radius: 2px;
 }
-
 p {
   font-size: 1.1em;
   margin-bottom: 15px;
@@ -117,7 +106,6 @@ p {
   justify-content: space-around;
   gap: 30px;
 }
-
 .service {
   flex: 1 1 280px;
   padding: 30px;
@@ -127,7 +115,6 @@ p {
   transition: transform 0.3s, box-shadow 0.3s;
   background: #fff;
 }
-
 .service:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 28px rgba(0,0,0,0.18);
@@ -140,28 +127,18 @@ p {
   gap: 25px;
   justify-items: center;
 }
-
 .gallery a {
   display: block;
   overflow: hidden;
   border-radius: 14px;
 }
-
 .gallery img {
   width: 100%;
   height: 250px;
   object-fit: cover;
   border-radius: 14px;
   transition: transform 0.5s ease, filter 0.5s ease, opacity 0.5s ease;
-  opacity: 0;
-  transform: translateY(20px);
 }
-
-.gallery img.loaded {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .gallery img:hover {
   transform: scale(1.05);
   filter: brightness(1.1);
@@ -174,7 +151,6 @@ form {
   max-width: 500px;
   margin: 0 auto;
 }
-
 form input, form textarea {
   padding: 14px;
   margin-bottom: 15px;
@@ -182,12 +158,10 @@ form input, form textarea {
   border-radius: 8px;
   font-size: 1em;
 }
-
 form textarea {
   min-height: 130px;
   resize: vertical;
 }
-
 form button {
   background: #000;
   color: #fff;
@@ -198,7 +172,6 @@ form button {
   border-radius: 8px;
   transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
 }
-
 form button:hover {
   background: #222;
   transform: scale(1.05);
@@ -214,28 +187,17 @@ footer {
   color: #555;
 }
 
-/* FADE IN ANIMATION */
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .hero-text h1 {
     font-size: 2.4em;
   }
-
   .hero-text p {
     font-size: 1.2em;
   }
-
   .gallery img {
     height: 200px;
   }
-
   .services-container {
     flex-direction: column;
     align-items: center;
