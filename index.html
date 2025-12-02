@@ -13,7 +13,9 @@
 
   <!-- HERO SECTION -->
   <section id="hero">
-    <img src="images/hero.jpeg" alt="Hero Image" class="hero-image">
+    <div class="hero-image-container">
+      <img src="images/hero.jpeg" alt="Hero Image" class="hero-image">
+    </div>
     <div class="hero-text fade-in">
       <h1>Shawn Forer Photography</h1>
       <p>Capturing Moments That Matter</p>
@@ -90,7 +92,7 @@
     });
 
     // FADE-IN ON SCROLL
-    const faders = document.querySelectorAll('.fade-in, .fade-in-section, .gallery img, .fade-in-btn');
+    const faders = document.querySelectorAll('.fade-in, .fade-in-section, .fade-in-btn');
 
     const appearOptions = {
       threshold: 0.1,
@@ -107,6 +109,13 @@
 
     faders.forEach(fader => {
       appearOnScroll.observe(fader);
+    });
+
+    // HERO PARALLAX
+    const heroImage = document.querySelector('.hero-image');
+    window.addEventListener('scroll', () => {
+      const offset = window.pageYOffset;
+      heroImage.style.transform = `translateY(${offset * 0.3}px) scale(1.05)`; 
     });
   </script>
 </body>
